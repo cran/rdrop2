@@ -23,6 +23,14 @@ strip_slashes <- function(path) {
     path
 }
 
+#' A small function to add a prefix slash
+#' @noRd
+add_slashes <- function(path) {
+  if (length(path) && !grepl("^/", path)) {
+    path <- paste0("/", path)
+  }
+  path
+}
 
 #' @noRd
 # This is an internal function to linearize lists
@@ -177,11 +185,10 @@ LinearizeNestedList <- function(NList, LinearizeDataFrames=FALSE,
 }
 
 #' A pretty list printer. Reduces extraneous space.
-#' @importFrom assertthat assert_that
 #' @noRd
 pretty_lists <- function(x)
 {
-  assert_that(inherits(x, "list"))
+  assertive::assert_is_list(x)
 
    for(key in names(x)){
       value <- format(x[[key]])
