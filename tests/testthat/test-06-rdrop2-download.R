@@ -10,26 +10,20 @@ test_that("drop_download works as expected", {
 
   # download to same path
   unlink(file_name)
-  expect_identical(
-    drop_download(file_name),
-    file_name
-  )
+  expect_true(drop_download(file_name))
+  expect_true(file.exists(file_name))
 
   # download to a new path
   new_path <- traceless("test-drop_download_newpath.csv")
-  expect_identical(
-    drop_download(file_name, new_path),
-    new_path
-  )
+  expect_true(drop_download(file_name, new_path))
+  expect_true(file.exists(new_path))
 
   # dowload to an implied path
   new_dir <- traceless("test-drop_download_newdir")
   dir.create(new_dir)
   implied_path <- file.path(new_dir, file_name)
-  expect_identical(
-    drop_download(file_name, new_dir),
-    implied_path
-  )
+  expect_true(drop_download(file_name, new_dir))
+  expect_true(file.exists(implied_path))
 
   # cleanup
   unlink(file_name)
@@ -42,7 +36,7 @@ test_that("drop_get works, but is deprecated", {
   skip_on_cran()
 
   # create and upload a file for testing, then delete locally
-  file_name <- paste0("test-drop_download-", uuid::UUIDgenerate(), ".csv")
+  file_name <- traceless("test-drop_download.csv")
   write.csv(mtcars, file_name)
   drop_upload(file_name)
   unlink(file_name)

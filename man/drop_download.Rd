@@ -26,7 +26,7 @@ authentication request. You can override this in \code{\link{drop_auth}} by
 pointing to a different location where your credentials are stored.}
 }
 \value{
-path to location file downloaded to, invisibly
+TRUE if successful; error thrown otherwise.
 }
 \description{
 Download a file from Dropbox to disk.
@@ -48,4 +48,7 @@ Download a file from Dropbox to disk.
   drop_get("dataset.zip", local_path = "some/other/place/not_a_dataset.zip")
 }
 
+}
+\references{
+\href{https://www.dropbox.com/developers/documentation/http/documentation#files-download}{API documentation}
 }
