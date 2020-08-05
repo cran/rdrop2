@@ -4,8 +4,13 @@
 \alias{drop_auth}
 \title{Authentication for Dropbox}
 \usage{
-drop_auth(new_user = FALSE, key = "mmhfsybffdom42w",
-  secret = "l8zeqqqgm1ne5z0", cache = TRUE, rdstoken = NA)
+drop_auth(
+  new_user = FALSE,
+  key = "mmhfsybffdom42w",
+  secret = "l8zeqqqgm1ne5z0",
+  cache = TRUE,
+  rdstoken = NA
+)
 }
 \arguments{
 \item{new_user}{Set to \code{TRUE} if you need to switch to a new user
@@ -34,7 +39,7 @@ A Token2.0 object, invisibly
 }
 \description{
 This function authenticates you into Dropbox. The documentation for the
-\href{https://www.dropbox.com/developers/core/docs}{core Dropbox API}
+\href{https://www.dropbox.com/developers/documentation?_tk=pilot_lp&_ad=topbar1&_camp=docs}{core Dropbox API}
 provides more details including alternate methods if you desire to
 reimplement your own.
 }

@@ -4,12 +4,17 @@
 \alias{drop_get}
 \title{Downloads a file from Dropbox}
 \usage{
-drop_get(path = NULL, local_file = NULL, overwrite = FALSE,
-  verbose = FALSE, progress = FALSE, dtoken = get_dropbox_token())
+drop_get(
+  path = NULL,
+  local_file = NULL,
+  overwrite = FALSE,
+  verbose = FALSE,
+  progress = FALSE,
+  dtoken = get_dropbox_token()
+)
 }
 \arguments{
-\item{path}{This is required The path to the new folder to create relative to
-root.}
+\item{path}{Path in the user's Dropbox, relative to root}
 
 \item{local_file}{The name of the local copy. Leave this blank if you're fine with the original name.}
 

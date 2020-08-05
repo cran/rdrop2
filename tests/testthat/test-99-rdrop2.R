@@ -13,9 +13,9 @@ test_that("drop_share works correctly", {
   write.csv(iris, file = file_name)
   drop_upload(file_name)
   res <- drop_share(file_name)
-  expect_equal(length(res), 10)
+  expect_equal(length(res), 11)
   share_names <- sort(c(".tag", "url", "id", "name", "path_lower", "link_permissions",
-                        "client_modified", "server_modified", "rev", "size"))
+                        "preview_type","client_modified", "server_modified", "rev", "size"))
   res_names <- sort(names(res))
   expect_identical(share_names, res_names)
 
@@ -120,6 +120,15 @@ test_that("drop_media works correctly", {
   drop_delete(file_name)
 })
 
+# minor test for strip slashes
+test_that("strip slashes works correctly", {
+  orig <- "//test/"
+  expect_true(grepl("^//", orig))
+  expect_false(grepl("^//", strip_slashes(orig)))
+  expect_true(grepl("^/", strip_slashes(orig)))
+  expect_true(grepl("/$", orig))
+  expect_false(grepl("/$", strip_slashes(orig)))
+  })
 
 # drop_read_csv
 test_that("drop_read_csv works correctly", {

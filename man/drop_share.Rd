@@ -4,12 +4,16 @@
 \alias{drop_share}
 \title{Creates and returns a shared link to a file or folder.}
 \usage{
-drop_share(path = NULL, requested_visibility = "public",
-  link_password = NULL, expires = NULL, dtoken = get_dropbox_token())
+drop_share(
+  path = NULL,
+  requested_visibility = "public",
+  link_password = NULL,
+  expires = NULL,
+  dtoken = get_dropbox_token()
+)
 }
 \arguments{
-\item{path}{This is required The path to the new folder to create relative to
-root.}
+\item{path}{Path in the user's Dropbox, relative to root}
 
 \item{requested_visibility}{Can be `public`, `team_only`, or `password`. If the
 password option is chosen one must specify the `link_password`. Note that
